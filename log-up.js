@@ -62,50 +62,24 @@ const {
 // your code below!
 
 
-
 const email = getInput(1);
 const password = getInput(2);
+console.log(email);
+console.log(password);
 
-// 1. If the email belongs to one of our registered
-// users AND the password matches that user, tell them
-// that they are logged in.
-
-if (isRegisteredUser(email) && passwordMatches(email, password)) {
-  console.log("You are logged in.");
-}
-// 2. If the email belongs to one of our registered
-// users but the password does not match that user,
-// tell them their password is incorrect.
-
-if (isRegisteredUser(email) && !passwordMatches(email, password)) {
-  console.log("Your password is incorrect.");
-}
-// 3. If the email does not belong to one of our
-// registered users, and the email and password are
-// both valid, tell them they're signed up.
-
-if (isValidEmail(email) && isValidPassword(password)) {
-  console.log("You are signed up.");
-}
-
-// 4. If the email does not belong to one of our
-// registered users, and the email is not valid,
-// tell them their email is not valid. Preferably
-// also tell them what makes a valid email.
-
-if (!isRegisteredUser(email) && !isValidEmail(email)) {
-  console.log(
-    "Your email is not valid. Your email must end with @codeimmersives.com"
-  );
-}
-
-// 5. If the email does not belong to one of our
-// registered users, and the password is not valid,
-// tell them their password is not valid. Preferably
-// also tell them what makes a valid password.
-
-if (!isRegisteredUser(email) && !isValidPassword(password)) {
-  console.log(
-    "Your password is not valid. Your password must be at least 8 characters long, contain an upper case letter, & a lower case letter."
-  );
-}
+  if (passwordMatches(email,password)){
+    console.log("Logged in");
+  }
+  if(isRegisteredUser(email)){
+    if(!passwordMatches(email ,password)){
+      console.log("Password Is Incorrect!");
+    }
+  }else{
+    if(isValidEmail(email) && isValidPassword(password)){
+      console.log("Signed Up");
+    }else if (!isValidEmail(email)){
+      console.log("Invalid Email");
+    }else if(!isValidPassword(password)){
+      console.log("Invalid Password");
+    }
+  } 
